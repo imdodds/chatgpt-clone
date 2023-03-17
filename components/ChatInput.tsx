@@ -38,9 +38,16 @@ function ChatInput({ chatId }: Props) {
     }
 
     await addDoc(
-      collection(db, 'users', session?.user?.email!, 'chats', chatId, 'messages'),
+      collection(
+        db,
+        'users',
+        session?.user?.email!,
+        'chats',
+        chatId,
+        'messages'
+      ),
       message
-    )
+    );
 
     // Toast Notification Loading
     const notification = toast.loading('ChatGPT is thinking...');
